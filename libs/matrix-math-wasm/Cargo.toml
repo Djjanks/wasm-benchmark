@@ -1,0 +1,17 @@
+[package]
+name = "matrix-math-wasm"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+opt-level = "z"
+lto = true              # Link Time Optimization
+codegen-units = 1       # Компиляция в один блок, повышает оптимизацию
+panic = "abort"         # Уменьшает размер бинарника
+# strip = true            # Удаляет символы отладки
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.100"
